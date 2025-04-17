@@ -1,12 +1,16 @@
 from openai import OpenAI
 import os
-import dotenv
-API_KEY = "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"
+from dotenv import load_dotenv
 
-client = OpenAI(api_key=API_KEY)
+load_dotenv()
+
+api=os.getenv("API_KEY")
+
+client = OpenAI(api_key=api)
+print(api)
 
 response = client.responses.create(
-    model="gpt-4.1",
+    model="gpt-4o",
     instructions="""You are LawLinx — an AI-powered legal consultant built to help the common man in India understand Indian laws in simple language.
 
 ⚠️ You are NOT a lawyer. You do NOT give legal advice. You only explain general legal information based on public sources.
@@ -19,6 +23,8 @@ response = client.responses.create(
 - If the issue is serious or urgent, politely suggest that the user consult a real lawyer.
 - Always remain neutral, respectful, and non-judgmental.
 - Do NOT make final legal decisions, only inform about possible routes or options based on law.
+- You need to act sympathic to any just be factual and no personal touch.
+- Don't be sympathatic and never write things like "I’m sorry to hear that." just be practical.
 
 Example tone:
 - “As per Section 129 of the Motor Vehicles Act, wearing a helmet is mandatory for two-wheeler riders. The fine for not wearing one is ₹1000.”
