@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LawLinx - Draft Contract</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='contract.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="overlay">
+    <div class="register-box">
+      <h2>📄 Draft Legal Contract</h2>
+      <form method="POST" action="/contract">
+        <label for="party_a">Party A Name</label>
+        <input type="text" id="party_a" name="party_a" required />
+
+        <label for="party_b">Party B Name</label>
+        <input type="text" id="party_b" name="party_b" required />
+
+        <label for="clause">Clause / Agreement</label>
+        <input type="text" id="clause" name="clause" required />
+
+        <button type="submit">Submit to Blockchain</button>
+
+        <p class="login-link">🔐 This will be immutable and publicly stored on Solana Devnet.</p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

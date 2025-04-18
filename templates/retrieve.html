@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LawLinx - Retrieve Contract</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='contract.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="overlay">
+    <div class="register-box">
+      <h2>📜 Retrieve Contract</h2>
+      <form method="POST" action="/retrieve">
+        <label for="party_a">Party A Name</label>
+        <input type="text" id="party_a" name="party_a" required value="{{ request.form.party_a if request.form.party_a }}" />
+
+        <label for="party_b">Party B Name</label>
+        <input type="text" id="party_b" name="party_b" required value="{{ request.form.party_b if request.form.party_b }}" />
+
+        <button type="submit">Fetch from Blockchain</button>
+      </form>
+
+      {% if result %}
+        <div style="margin-top: 30px; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px;">
+          <p><strong>👤 Creator:</strong> {{ result.creator }}</p>
+          <p><strong>👨‍⚖️ Party A:</strong> {{ result.party_a }}</p>
+          <p><strong>👩‍⚖️ Party B:</strong> {{ result.party_b }}</p>
+          <p><strong>📜 Clause:</strong> {{ result.clause }}</p>
+        </div>
+      {% elif error %}
+        <div style="margin-top: 30px; color: #ff6666; font-weight: bold;">
+          ❌ {{ error }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>

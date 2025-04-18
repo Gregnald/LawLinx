@@ -1,0 +1,106 @@
+body {
+    background-image: url('photo1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1.2s ease-in;
+  }
+  
+  .register-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 40px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    text-align: center;
+    color: #f1f1f1;
+    animation: slideUp 1s ease-in-out;
+  }
+  
+  .register-box h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #ffd700;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 2s ease;
+  }
+  
+  label {
+    margin: 10px 0 5px;
+    text-align: left;
+    color: #ddd;
+    font-size: 15px;
+  }
+  
+  input {
+    padding: 12px;
+    margin-bottom: 18px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 8px #ffd700a6;
+  }
+  
+  button {
+    padding: 12px;
+    background-color: #ffd700;
+    color: #1c1c3a;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #e5c100;
+  }
+  
+  .login-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ccc;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
