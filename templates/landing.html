@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LexVerse - Legal Access Made Simple</title>
+  <title>LawLinx - Legal Access Made Simple</title>
   <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">    
-  <link rel="stylesheet" href="{{ url_for('static', filename='landing.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='landing.css')}}"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -14,8 +14,9 @@
       <div class="logo">⚖️ LawLinx</div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#workflow">Workflow</a></li>
+        <li><a href="#tech">Technology</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -24,33 +25,63 @@
   <section class="hero" id="home">
     <div class="hero-content">
       <h1>Empowering Justice Through Technology</h1>
-      <p>Access legal resources, connect with experts, and know your rights — all in one place.</p>
+      <p>LawLinx is your decentralized legal engine — AI-enhanced, blockchain-backed, and justice-aligned.</p>
       <a href="login" class="cta-button">Login to Portal</a>
     </div>
   </section>
 
-  <section class="about" id="about">
-    <h2>About Us</h2>
-    <p>LawLinx is a modern digital law platform offering accessible, reliable, and secure legal assistance and documentation. From students to lawyers, we bridge the gap between people and justice.</p>
+  <section class="about" id="features">
+    <h2>Core Features</h2>
+    <ul>
+      <li>📄 Draft immutable legal contracts directly on the Solana blockchain</li>
+      <li>🤖 Ask LawBot — your AI-powered legal consultant backed by OpenAI</li>
+      <li>🔍 Retrieve and verify any contract on-chain with guaranteed immutability</li>
+      <li>👥 Simple, secure registration and login system</li>
+      <li>🛡️ Censorship-resistant, decentralized, and future-proof</li>
+    </ul>
   </section>
 
-  <section class="services" id="services">
-    <h2>Our Services</h2>
+  <section class="services" id="workflow">
+    <h2>How It Works</h2>
     <div class="cards">
-      <div class="card">📝 Legal Document Generator</div>
-      <div class="card">💬 Chat with Legal Experts</div>
-      <div class="card">📚 Law Student Resources</div>
+      <div class="card">
+        <h3>1. Register / Login</h3>
+        <p>Create an account to access the full suite of legal services.</p>
+      </div>
+      <div class="card">
+        <h3>2. Draft a Contract</h3>
+        <p>Specify the involved parties and contract clause — then deploy it to the blockchain with one click.</p>
+      </div>
+      <div class="card">
+        <h3>3. Consult LawBot</h3>
+        <p>Get instant legal advice, explanations, and actionable insights — powered by OpenAI.</p>
+      </div>
+      <div class="card">
+        <h3>4. Retrieve a Contract</h3>
+        <p>Recreate the contract ID via your inputs and verify it directly from the chain — immutable, verifiable proof.</p>
+      </div>
     </div>
+  </section>
+
+  <section class="about" id="tech">
+    <h2>Technology Stack</h2>
+    <ul>
+      <li>🌐 Flask (Python) for backend logic and API handling</li>
+      <li>🔗 Solana Devnet Smart Contracts written in Rust (Anchor Framework)</li>
+      <li>⚡ AnchorPy + Solders for seamless Solana interaction via Python</li>
+      <li>🧠 OpenAI API integration to power LawBot (legal Q&A AI)</li>
+      <li>💻 Clean frontend using HTML, CSS, and responsive UI design</li>
+    </ul>
   </section>
 
   <section class="contact" id="contact">
     <h2>Contact Us</h2>
-    <p>Email: support@lawlinx.com</p>
-    <p>Phone: +91-99999-99999</p>
+    <p>📧 Email: support@lawlinx.com</p>
+    <p>📞 Phone: +91-96824-58704</p>
   </section>
 
   <footer>
-    <p>&copy; 2025 LexVerse. All rights reserved.</p>
+    <p>&copy; 2025 LawLinx. Built with ❤️. All rights reserved.</p>
   </footer>
 </body>
 </html>

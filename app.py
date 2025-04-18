@@ -6,21 +6,66 @@ from retrieve_contract import *
 
 app = Flask(__name__)
 
+USERS_FILE = "users.json"
+
 from flask_cors import CORS
 CORS(app)
+
+def load_users():
+    if not os.path.exists(USERS_FILE):
+        return {}
+    with open(USERS_FILE, "r") as f:
+        return json.load(f)
+
+def save_users(users):
+    with open(USERS_FILE, "w") as f:
+        json.dump(users, f, indent=4)
 
 try:
     @app.route('/')
     def home():
         return render_template("landing.html")
 
-    @app.route('/registration')
-    def register():
+    @app.route("/registration", methods=["GET", "POST"])
+    def registration():
+        if request.method == "POST":
+            fullname = request.form["fullname"]
+            email = request.form["email"]
+            username = request.form["username"]
+            password = request.form["password"]
+
+            users = load_users()
+
+            if email in users:
+                return "❌ Email already registered."
+
+            users[email] = {
+                "fullname": fullname,
+                "username": username,
+                "password": password  # optionally hash
+            }
+
+            save_users(users)
+            return redirect(url_for("login"))
+
         return render_template("registration.html")
     
-    @app.route('/login')
+    @app.route("/login", methods=["GET", "POST"])
     def login():
+        if request.method == "POST":
+            email = request.form["username"]  # this field holds email
+            password = request.form["password"]
+
+            users = load_users()
+
+            if email in users and users[email]["password"] == password:
+                return redirect(url_for("dashboard"))  # or homepage
+            else:
+                return "❌ Invalid email or password"
+
         return render_template("login.html")
+
+
     
     @app.route("/dashboard")
     def dashboard():
@@ -71,6 +116,6 @@ try:
     
 except Exception as e:
     print(e)
-
+#yo
 if __name__ == "__main__":
-    app.run(debug=True,host="0.0.0.0",port=5000)
+    app.run(debug=False,host="0.0.0.0",port=5000)
